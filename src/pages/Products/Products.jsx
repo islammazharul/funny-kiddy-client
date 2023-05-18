@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Product from '../Product/Product';
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -27,17 +28,20 @@ const Products = () => {
 
     return (
         <div className='text-center'>
-            <div className=" flex justify-center tabs tabs-boxed">
+            <div className="flex justify-center space-x-4 tabs tabs-boxed py-5 lg:w-1/2 mx-auto">
                 <a onClick={() => handleTab(1)}
-                    className="tab" style={{ backgroundColor: tab === 1 ? "red" : "" }}>bus</a>
-                <a onClick={() => handleTab(2)} className="tab"
+                    className="tab text-xl font-bold" style={{ backgroundColor: tab === 1 ? "red" : "" }}>bus</a>
+                <a onClick={() => handleTab(2)} className="tab text-xl font-bold"
                     style={{ backgroundColor: tab === 2 ? "red" : "" }}>tructar</a>
-                <a onClick={() => handleTab(3)} className="tab"
+                <a onClick={() => handleTab(3)} className="tab text-xl font-bold"
                     style={{ backgroundColor: tab === 3 ? "red" : "" }}>racing car</a>
             </div>
-            <div>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    // product?.map(toy => )
+                    product?.map(product => <Product
+                        key={product._id}
+                        product={product}
+                    ></Product>)
                 }
             </div>
         </div>
