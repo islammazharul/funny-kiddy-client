@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Navbar = () => {
-
+    const { user, logOut } = useContext(AuthContext)
     const handleLogOut = () => {
-
+        logOut()
+            .then(res => res.json())
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     const navItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to="/blog">Blog</Link></li>
+        <li><Link to='/' className='text-md font-bold mr-2'>Home</Link></li>
+        <li><Link to="/blog" className='text-md font-bold mr-2'>Blog</Link></li>
         {
-            <>
-                <li><Link to="/allToys">All Toys</Link></li>
-                <li><Link to="/myToys">My Toys</Link></li>
-                <li><Link to="/addToys">Add a Toys</Link></li>
-                <li><button onClick={() => handleLogOut()}>Log Out</button></li>
-                <li><Link to='/login'>Login</Link></li>
-            </>
+            user?.email ? <>
+                <li><Link to="/allToys" className='text-md font-bold mr-2'>All Toys</Link></li>
+                <li><Link to="/myToys" className='text-md font-bold mr-2'>My Toys</Link></li>
+                <li><Link to="/addToys" className='text-md font-bold mr-2'>Add a Toys</Link></li>
+                <li><button onClick={handleLogOut} className='text-md font-bold mr-2'>Log Out</button></li> </> :
+                <li><Link to='/login' className='text-md font-bold mr-5'>Login</Link></li>
         }
     </>
 
     return (
-        <div className="navbar bg-stone-400 lg:h-20">
+        <div className="navbar bg-emerald-300 lg:h-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -42,13 +46,13 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                    </div>
-                </label>
-            </div>
+            {
+                user ?
+                    <div className="navbar-end rounded-full tooltip w-10 mx-auto tooltip-left" data-tip={user.displayName}>
+                        <img className='rounded-full w-full' src={user?.photoURL} />
+                    </div> : <p>sds</p>
+
+            }
         </div>
     );
 };

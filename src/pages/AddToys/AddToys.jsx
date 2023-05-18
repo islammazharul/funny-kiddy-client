@@ -1,21 +1,36 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AddToys = () => {
+    const { user } = useContext(AuthContext)
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        console.log(data)
+        fetch("http://localhost:6500/post-products", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
+    };
 
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col lg:flex">
 
-                <div className='border-4 p-8 bg-indigo-200'>
+                <div className='border-4 pl-3 lg:p-8 bg-indigo-200'>
                     <h1 className="text-5xl font-bold text-center mb-8">Please Add Your Product!</h1>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         {errors.exampleRequired && <span>This field is required</span>}
-                        <div className='flex justify-between'>
+                        <div className='lg:flex justify-between'>
                             <div className='me-4'>
                                 <label className='font-bold'>Image URL</label>
                                 <input
@@ -49,7 +64,6 @@ const AddToys = () => {
                                 <label className='font-bold'>Details Description</label>
                                 <input
                                     className="textarea w-full max-w-xs"
-                                    // value={user?.email}
                                     {...register("Description")}
                                     placeholder="Description"
                                     type="text"
@@ -59,6 +73,7 @@ const AddToys = () => {
                                 <label className='font-bold'>Seller Name</label>
                                 <input
                                     className="input w-full max-w-xs block mb-3"
+                                    value={user?.displayName}
                                     {...register("seller_name")}
                                     placeholder="Name"
                                     defaultValue=""
@@ -66,7 +81,7 @@ const AddToys = () => {
                                 <label className='font-bold'>Seller Email</label>
                                 <input
                                     className="input w-full max-w-xs"
-                                    // value={user?.email}
+                                    value={user?.email}
                                     {...register("postedBy")}
                                     placeholder="your email"
                                     type="email"
@@ -78,16 +93,21 @@ const AddToys = () => {
                                     placeholder="Rating"
                                     defaultValue="4.5"
                                 />
-                                <label className='font-bold'>Sub-Category</label>
+                                <label className='font-bold'>Category</label>
                                 <input
                                     className="input w-full max-w-xs block mb-3"
+                                    {...register("category", { required: true })}
+                                    placeholder="Category"
+                                />
+                                <label className='font-bold'>Sub-Category</label>
+                                <input
+                                    className="input w-full max-w-xs"
                                     {...register("sub_category", { required: true })}
                                     placeholder="Sub-Category"
-
                                 />
                             </div>
                         </div>
-                        <button className="btn btn-primary w-full mt-3">Add a Toy</button>
+                        <button className="btn btn-primary w-full mt-3" type='submit'>Add a Toy</button>
                     </form>
                 </div>
                 {/* <div>

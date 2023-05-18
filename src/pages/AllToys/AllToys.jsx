@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const AllToys = () => {
+
+
+
+
     return (
         <div>
             {/* <h2>Your Booking {booking?.length}</h2> */}
@@ -22,12 +28,12 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {
-                            // booking.map(books => <Book
+                            // booking.map(books => <Toys
                             //     key={books._id}
                             //     books={books}
                             //     handleDelete={handleDelete}
                             //     handleBookingConfirm={handleBookingConfirm}
-                            // ></Book>)
+                            // ></Toys>)
                         }
                     </tbody>
                 </table>
