@@ -20,7 +20,7 @@ const Products = () => {
 
     }
     // const all = products.map(product => )
-    const bus = products.filter(product => product.sub_category === "bus");
+    const bus = products.filter(product => product.sub_category === "Racing-car");
     const tructar = products.filter(product => product.sub_category === "Tructar");
     const car = products.filter(product => product.sub_category === "Police-car");
 
@@ -36,7 +36,7 @@ const Products = () => {
                 <a onClick={() => handleTab(3)} className="tab text-xl font-bold"
                     style={{ backgroundColor: tab === 3 ? "red" : "" }}>racing car</a>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:my-5 mx-auto lg:w-10/12 gap-4'>
                 {
                     product?.map(product => <Product
                         key={product._id}

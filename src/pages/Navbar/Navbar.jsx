@@ -13,15 +13,15 @@ const Navbar = () => {
     }
 
     const navItems = <>
-        <li><Link to='/' className='text-md font-bold mr-2'>Home</Link></li>
-        <li><Link to="/blog" className='text-md font-bold mr-2'>Blog</Link></li>
+        <li><Link to='/' className='font-bold mr-2 btn-outline btn-secondary'>Home</Link></li>
+        <li><Link to="/blog" className='text-md font-bold mr-2 btn-outline btn-secondary'>Blog</Link></li>
         {
             user?.email ? <>
-                <li><Link to="/allToys" className='text-md font-bold mr-2'>All Toys</Link></li>
-                <li><Link to="/myToys" className='text-md font-bold mr-2'>My Toys</Link></li>
-                <li><Link to="/addToys" className='text-md font-bold mr-2'>Add a Toys</Link></li>
-                <li><button onClick={handleLogOut} className='text-md font-bold mr-2'>Log Out</button></li> </> :
-                <li><Link to='/login' className='text-md font-bold mr-5'>Login</Link></li>
+                <li><Link to="/allToys" className='text-md font-bold mr-2 btn-outline btn-secondary'>All Toys</Link></li>
+                <li><Link to="/myToys" className='text-md font-bold mr-2 btn-outline btn-secondary'>My Toys</Link></li>
+                <li><Link to="/addToys" className='text-md font-bold mr-2 btn-outline btn-secondary'>Add a Toys</Link></li>
+                <li><button onClick={handleLogOut} className='text-white font-bold btn-secondary rounded-3xl'>Log Out</button></li> </> :
+                <li><Link to='/login' className='text-white font-bold bg-pink-600 rounded-3xl'>Login</Link></li>
         }
     </>
 

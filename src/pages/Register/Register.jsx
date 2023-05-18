@@ -68,14 +68,14 @@ const Register = () => {
     }
 
     return (
-        <div className="hero min-h-screen bg-indigo-100">
+        <div className="hero min-h-screen ">
             <div className="hero-content flex-col lg:flex-row">
                 <div className="lg:mr-12 lg:w-1/2">
-                    <img className='w-full rounded-xl' src="https://i.ibb.co/Vmyggr3/undraw-Login-re-4vu2.png" alt="" />
+                    <img className='w-full rounded-xl' src="https://i.ibb.co/RjPQzvw/undraw-Social-share-re-qb4v.png" alt="" />
                 </div>
-                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                <div className="card w-full max-w-sm shadow-xl bg-gray-400 bg-opacity-50">
                     <div className="card-body">
-                        <h1 className="text-5xl font-bold">Register!</h1>
+                        <h1 className="text-3xl font-bold">Register!</h1>
                         <p className="text-red-500">{error}</p>
                         <p className="text-green-700">{success}</p>
                         <form onSubmit={handleRegister}>

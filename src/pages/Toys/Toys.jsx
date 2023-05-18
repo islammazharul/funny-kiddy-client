@@ -5,13 +5,13 @@ const Toys = ({ toy, index }) => {
     return (
         <>
             <tr>
-                <th>{index + 1}</th>
-                <td>{toys_name}</td>
-                <td>{sub_category}</td>
-                <td>{seller_name}</td>
-                <td>{Price}</td>
-                <td>{quantity}</td>
-                <td><button className="btn btn-sm bg-red-300">View Details</button></td>
+                <th className='font-bold'>{index + 1}</th>
+                <td className='font-bold'>{toys_name}</td>
+                <td className='font-bold'>{sub_category}</td>
+                <td className='font-bold'>{seller_name}</td>
+                <td className='font-bold'>$ {Price}</td>
+                <td className='font-bold'>{quantity}</td>
+                <td><button className="btn btn-sm bg-red-400 border-0">View Details</button></td>
             </tr>
         </>
     );
