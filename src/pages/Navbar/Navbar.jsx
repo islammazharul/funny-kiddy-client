@@ -26,7 +26,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="navbar bg-emerald-300 lg:h-20">
+        <div className="navbar bg-black lg:h-20">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -41,7 +41,7 @@ const Navbar = () => {
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
                         <img className='w-20 rounded-full' src={"https://i.ibb.co/W3S4Ngv/funny-logo.png"} alt="" />
                     </Link>
-                    <a className="btn btn-ghost normal-case text-xl">Funny-Kiddy</a>
+                    {/* <a className="btn btn-ghost normal-case text-xl">Funny-Kiddy</a> */}
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -50,13 +50,15 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            {
-                user ?
-                    <div className="navbar-end rounded-full tooltip w-10 mx-auto tooltip-left" data-tip={user.displayName}>
-                        <img className='rounded-full' src={user?.photoURL} />
-                    </div> : ""
+            <div className='navbar-end flex-1'>
+                {
+                    user ?
+                        <div className="tooltip tooltip-left w-10" data-tip={user.displayName}>
+                            <img className='rounded-full' src={user?.photoURL} />
+                        </div> : ""
 
-            }
+                }
+            </div>
         </div>
     );
 };

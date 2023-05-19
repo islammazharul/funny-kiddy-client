@@ -9,7 +9,7 @@ const Products = () => {
         fetch("http://localhost:6500/allProducts")
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setProducts(data)
             })
     }, [])
@@ -27,7 +27,8 @@ const Products = () => {
     const product = tab === 1 ? bus : tab === 2 ? tructar : tab === 3 ? car : null;
 
     return (
-        <div className='text-center'>
+        <div className='text-center mt-12'>
+            <h1 className='text-5xl font-bold mb-8'>Shop by Category</h1>
             <div className="flex justify-center space-x-4 tabs tabs-boxed py-5 lg:w-1/2 mx-auto">
                 <a onClick={() => handleTab(1)}
                     className="tab text-xl font-bold" style={{ backgroundColor: tab === 1 ? "red" : "" }}>bus</a>

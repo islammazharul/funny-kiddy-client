@@ -52,7 +52,7 @@ const AllToys = () => {
                                 key={toy._id}
                                 toy={toy}
                                 index={index}
-                            // handleDelete={handleDelete}
+                            // handleDetails={handleDetails}
                             // handleBookingConfirm={handleBookingConfirm}
                             ></Toys>)
                         }
