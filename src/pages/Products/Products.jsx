@@ -20,9 +20,9 @@ const Products = () => {
 
     }
     // const all = products.map(product => )
-    const Racing = products.filter(product => product.sub_category === "Racing-car");
-    const Action = products.filter(product => product.sub_category === "Tructar");
-    const Police = products.filter(product => product.sub_category === "Police-car");
+    const Racing = products.filter(product => product.sub_category === "Racing-Car");
+    const Action = products.filter(product => product.sub_category === "Action-Car");
+    const Police = products.filter(product => product.sub_category === "Police-Car");
 
     const product = tab === 1 ? Racing : tab === 2 ? Action : tab === 3 ? Police : null;
 

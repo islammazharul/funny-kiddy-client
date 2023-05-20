@@ -4,8 +4,6 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const MyProducts = ({ product }) => {
-    const prod = useLoaderData();
-    console.log(prod);
 
     const { _id, toys_name, sub_category, seller_name, quantity, postedBy, image, category, Rating, Price, Description } = product;
 
