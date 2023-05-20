@@ -25,19 +25,19 @@ const Products = () => {
 
 
     return (
-        <div className='text-center mt-12'>
-            <h1 className='text-5xl font-bold mb-8'>Shop by Category</h1>
+        <div className='text-center shadow-2xl lg:py-10'>
+            <h1 className='text-5xl font-bold mt-5 mb-8'>SHOP BY CATEGORY</h1>
 
-            <div className="flex justify-center space-x-4 tabs tabs-boxed py-5 lg:w-1/2 mx-auto">
+            <div className="flex justify-center space-x-4 tabs tabs-boxed lg:py-4 lg:w-1/3 mx-auto">
                 <a onClick={() => handleTab("Racing-Car")}
-                    className={`tab  tab2 remote ${tab == "Racing-Car" ? " bg-red-500 text-white" : ""
-                        }`}>Racing-Car</a>
-                <a onClick={() => handleTab("Action-Car")} className={`tab  tab2 remote ${tab == "Action-Car" ? " bg-red-500 text-white" : ""
+                    className={`tab font-bold ${tab == "Racing-Car" ? " bg-red-500 text-white font-bold" : ""
+                        }`}>SPORTS-CAR</a>
+                <a onClick={() => handleTab("Action-Car")} className={`tab font-bold ${tab == "Action-Car" ? " bg-red-500 text-white font-bold" : ""
                     }`}
-                >Action-Car</a>
-                <a onClick={() => handleTab("Police-Car")} className={`tab  tab2 remote ${tab == "Police-Car" ? " bg-red-500 text-white" : ""
+                >REGULAR-CAR</a>
+                <a onClick={() => handleTab("Police-Car")} className={`tab font-bold ${tab == "Police-Car" ? " bg-red-500 text-white font-bold" : ""
                     }`}
-                >Police-Car</a>
+                >POLICE-CAR</a>
             </div>
 
 

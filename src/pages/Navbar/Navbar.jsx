@@ -41,7 +41,7 @@ const Navbar = () => {
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
                         <img className='w-20 rounded-full' src={"https://i.ibb.co/W3S4Ngv/funny-logo.png"} alt="" />
                     </Link>
-                    {/* <a className="btn btn-ghost normal-case text-xl">Funny-Kiddy</a> */}
+                    <a className="btn btn-ghost normal-case lg:text-3xl text-pink-600 font-bold"><span className='text-6xl text-white'>111</span>funny</a>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

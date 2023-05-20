@@ -38,14 +38,14 @@ const AddToys = () => {
                                     {...register("image")}
                                     placeholder="image link"
                                     type="url"
-                                    defaultValue="https://images.pexels.com/photos/2528118/pexels-photo-2528118.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                // defaultValue="https://images.pexels.com/photos/2528118/pexels-photo-2528118.jpeg?auto=compress&cs=tinysrgb&w=600"
                                 />
                                 <label className='font-bold'>Toys Name</label>
                                 <input
                                     className="input w-full max-w-xs block mb-3"
                                     {...register("toys_name")}
                                     placeholder="Name"
-                                    defaultValue=""
+
                                 />
                                 <label className='font-bold'>Price</label>
                                 <input
@@ -73,15 +73,15 @@ const AddToys = () => {
                                 <label className='font-bold'>Seller Name</label>
                                 <input
                                     className="input w-full max-w-xs block mb-3"
-                                    value={user?.displayName}
+                                    // value={user?.displayName}
                                     {...register("seller_name")}
                                     placeholder="Name"
-                                    defaultValue=""
+
                                 />
                                 <label className='font-bold'>Seller Email</label>
                                 <input
                                     className="input w-full max-w-xs"
-                                    value={user?.email}
+                                    // value={user?.email}
                                     {...register("postedBy")}
                                     placeholder="your email"
                                     type="email"
@@ -98,23 +98,25 @@ const AddToys = () => {
                                     className="input w-full max-w-xs block mb-3"
                                     {...register("category", { required: true })}
                                     placeholder="Category"
+                                    defaultValue="Toy Cars"
                                 />
                                 <label className='font-bold'>Sub-Category</label>
-                                <input
-                                    className="input w-full max-w-xs"
-                                    {...register("sub_category", { required: true })}
-                                    placeholder="Sub-Category"
-                                />
+                                <select className="select select-bordered w-full max-w-xs"
+                                    {...register("sub_category")}
+                                >
+
+                                    <option disabled select="true">Sub-Category</option>
+                                    <option>Sports-Car</option>
+                                    <option>Regular-Car</option>
+                                    <option>Police-Car</option>
+                                </select>
                             </div>
                         </div>
                         <button className="btn btn-primary w-full mt-3" type='submit'>Add a Toy</button>
                     </form>
                 </div>
-                {/* <div>
-                    <img src="/images/stock/photo-1635805737707-575885ab0820.jpg" className="max-w-sm rounded-lg shadow-2xl" />
-                </div> */}
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
