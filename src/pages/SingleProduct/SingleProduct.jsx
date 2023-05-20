@@ -3,7 +3,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const SingleProduct = () => {
     const product = useLoaderData();
-    console.log(product);
+    // console.log(product);
     const { toys_name, sub_category, seller_name, quantity, postedBy, image, category, Rating, Price, Description } = product;
     return (
         <div>
