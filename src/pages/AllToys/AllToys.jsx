@@ -10,8 +10,8 @@ const AllToys = () => {
         fetch("http://localhost:6500/allProducts")
             .then(res => res.json())
             .then(data => {
-                const toy = data.slice(0, 20);
-                setAllToys(toy)
+                // const toy = data.slice(0, 20);
+                setAllToys(data)
             })
     }, [])
 
@@ -64,8 +64,6 @@ const AllToys = () => {
                                 key={toy._id}
                                 toy={toy}
                                 index={index}
-                            // handleDetails={handleDetails}
-                            // handleBookingConfirm={handleBookingConfirm}
                             ></Toys>)
                         }
                     </tbody>

@@ -12,6 +12,7 @@ import Blog from "../pages/Blog/Blog";
 import Error from "../pages/Error/Error";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import SingleProduct from "../pages/SingleProduct/SingleProduct";
+import MyProducts from "../pages/MyProducts/MyProducts";
 
 
 const router = createBrowserRouter([
@@ -41,11 +42,11 @@ const router = createBrowserRouter([
                 element: <SingleProduct></SingleProduct>,
                 loader: ({ params }) => fetch(`http://localhost:6500/singleProduct/${params.id}`)
             },
-            // {
-            //     path: "myToys/updateProduct/:id",
-            //     element: <UpdateProduct></UpdateProduct>,
-            //     loader: ({ params }) => fetch(`http://localhost:6500/allProducts/${params.id}`)
-            // },
+            {
+                path: "updateProduct/:id",
+                element: <MyProducts></MyProducts>,
+                loader: ({ params }) => fetch(`http://localhost:6500/updateProduct/${params.id}`)
+            },
             {
                 path: "/login",
                 element: <Login></Login>

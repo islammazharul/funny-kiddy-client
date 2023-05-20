@@ -1,12 +1,15 @@
-import React, { useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import { AuthContext } from '../../providers/AuthProvider';
+import React from 'react';
 
-const MyProducts = ({ product, index, handleDeleteProduct }) => {
+// import { AuthContext } from '../../providers/AuthProvider';
+import { Link, useLoaderData } from 'react-router-dom';
+
+const MyProducts = ({ product }) => {
+    const prod = useLoaderData();
+    console.log(prod);
 
     const { _id, toys_name, sub_category, seller_name, quantity, postedBy, image, category, Rating, Price, Description } = product;
 
-    const { user } = useContext(AuthContext)
+    // const { user } = useContext(AuthContext)
 
     const handleUpdateProduct = event => {
         event.preventDefault();
@@ -30,40 +33,33 @@ const MyProducts = ({ product, index, handleDeleteProduct }) => {
                 console.log(result);
             })
     }
-    const handleId = _id => {
-        console.log("id", _id);
-    }
 
 
     return (
         <>
             {/* The button to open modal */}
-            < label onClick={() => handleId(_id)} htmlFor="my-modal-5" className="btn btn-sm bg-green-500 border-0">Update</label>
+            <label htmlFor={`my-modal${_id}`} className="btn btn-sm bg-green-500 border-0">Update</label>
 
             {/* Put this part before </body> tag */}
-            < input type="checkbox" id="my-modal-5" className="modal-toggle" />
+            < input type="checkbox" id={`my-modal${_id}`} className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box w-11/12 max-w-5xl">
                     <div className='border-4 pl-3 bg-indigo-200'>
                         <h1 className="text-2xl font-bold text-center">Update Your Product!</h1>
                         <form onSubmit={handleUpdateProduct}>
-                            {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
                             <div className='me-3'>
-
                                 <label className='font-bold'>Price</label>
                                 <input
                                     className="input w-full max-w-xs block mb-3"
                                     name="price"
                                     type="number"
-                                    // {...register("Price", { required: true })}
                                     placeholder="Price"
                                     defaultValue={Price}
                                 />
                                 <label className='font-bold'>Available Quantity</label>
                                 <input
                                     className="input w-full max-w-xs block mb-3"
-                                    // {...register("quantity", { required: true })}
                                     placeholder={quantity}
                                     type="number"
                                     name="quantity"
@@ -71,7 +67,6 @@ const MyProducts = ({ product, index, handleDeleteProduct }) => {
                                 <label className='font-bold block'>Details Description</label>
                                 <input
                                     className="textarea w-full max-w-xs"
-                                    // {...register("Description")}
                                     placeholder={Description}
                                     type="text"
                                     name="details"
@@ -81,7 +76,7 @@ const MyProducts = ({ product, index, handleDeleteProduct }) => {
                         </form>
                     </div>
                     <div className="modal-action">
-                        <label htmlFor="my-modal-5" className="btn">Yay!</label>
+                        <label htmlFor={`my-modal${_id}`} className="btn">Back</label>
                     </div>
                 </div>
             </div>
