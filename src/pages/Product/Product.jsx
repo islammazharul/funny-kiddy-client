@@ -9,10 +9,18 @@ const Product = ({ product }) => {
                 <img src={image} alt="Car" className="rounded-lg h-full" />
             </figure>
             <div className="card-body ">
-                <h2 className="card-title">{toys_name}</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title font-bold">{toys_name}</h2>
+                <p className='text-start font-bold'>Price : $ <span className='text-indigo-800 text-2xl'>{Price}</span></p>
                 <div className="card-actions">
                     <Link className="bg-pink-600 text-white rounded-3xl px-3 py-1 text-sm shadow-xl">View Details</Link>
+                    <p className='text-end'><div className="rating w-20">
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 " />
+                        {Rating}
+                    </div></p>
                 </div>
             </div>
         </div>

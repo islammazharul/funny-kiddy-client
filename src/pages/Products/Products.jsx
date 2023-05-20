@@ -20,22 +20,22 @@ const Products = () => {
 
     }
     // const all = products.map(product => )
-    const bus = products.filter(product => product.sub_category === "Racing-car");
-    const tructar = products.filter(product => product.sub_category === "Tructar");
-    const car = products.filter(product => product.sub_category === "Police-car");
+    const Racing = products.filter(product => product.sub_category === "Racing-car");
+    const Action = products.filter(product => product.sub_category === "Tructar");
+    const Police = products.filter(product => product.sub_category === "Police-car");
 
-    const product = tab === 1 ? bus : tab === 2 ? tructar : tab === 3 ? car : null;
+    const product = tab === 1 ? Racing : tab === 2 ? Action : tab === 3 ? Police : null;
 
     return (
         <div className='text-center mt-12'>
             <h1 className='text-5xl font-bold mb-8'>Shop by Category</h1>
             <div className="flex justify-center space-x-4 tabs tabs-boxed py-5 lg:w-1/2 mx-auto">
                 <a onClick={() => handleTab(1)}
-                    className="tab text-xl font-bold" style={{ backgroundColor: tab === 1 ? "red" : "" }}>bus</a>
+                    className="tab text-xl font-bold" style={{ backgroundColor: tab === 1 ? "#e31471" : "" }}>Racing-Car</a>
                 <a onClick={() => handleTab(2)} className="tab text-xl font-bold"
-                    style={{ backgroundColor: tab === 2 ? "red" : "" }}>tructar</a>
+                    style={{ backgroundColor: tab === 2 ? "#e31471" : "" }}>Action-Car</a>
                 <a onClick={() => handleTab(3)} className="tab text-xl font-bold"
-                    style={{ backgroundColor: tab === 3 ? "red" : "" }}>racing car</a>
+                    style={{ backgroundColor: tab === 3 ? "#e31471" : "" }}>Police-Car</a>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:my-5 mx-auto lg:w-10/12 gap-4'>
                 {

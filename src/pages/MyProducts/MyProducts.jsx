@@ -29,9 +29,6 @@ const MyProducts = ({ product, index, handleDeleteProduct }) => {
             .then(result => {
                 console.log(result);
             })
-
-
-
     }
     const handleId = _id => {
         console.log("id", _id);

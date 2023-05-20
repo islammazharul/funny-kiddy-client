@@ -11,6 +11,7 @@ import Register from "../pages/Register/Register";
 import Blog from "../pages/Blog/Blog";
 import Error from "../pages/Error/Error";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
+import SingleProduct from "../pages/SingleProduct/SingleProduct";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
             {
                 path: "/allToys",
                 element: <AllToys></AllToys>
+            },
+            {
+                path: "singleProduct/:id",
+                element: <SingleProduct></SingleProduct>,
+                loader: ({ params }) => fetch(`http://localhost:6500/singleProduct/${params.id}`)
             },
             // {
             //     path: "myToys/updateProduct/:id",
