@@ -2,15 +2,17 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import MyProducts from '../MyProducts/MyProducts';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [products, setProducts] = useState([]);
     const [control, setControl] = useState(false);
+    useTitle("My Toys")
 
     useEffect(() => {
-        fetch(`http://localhost:6500/myProducts/${user?.email}`)
+        fetch(`https://funny-kiddy-server.vercel.app/myProducts/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -29,7 +31,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:6500/deleteProduct/${_id}`, {
+                fetch(`https://funny-kiddy-server.vercel.app/deleteProduct/${_id}`, {
                     method: "DELETE",
 
                 })
@@ -47,11 +49,30 @@ const MyToys = () => {
             }
         })
 
+
+
+    }
+
+    const handleAscending = () => {
+        fetch(`https://funny-kiddy-server.vercel.app/ascending?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
+    }
+    const handleDescending = () => {
+        fetch(`https://funny-kiddy-server.vercel.app/descending?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data)
+            })
     }
 
     return (
         <div className="overflow-x-auto">
             <h2 className='text-center text-3xl mt-5'>Your Total products: {products?.length}</h2>
+            <button onClick={handleAscending} className='btn btn-accent'>Ascending</button>
+            <button onClick={handleDescending} className='btn btn-secondary'>Descending</button>
             <table className="table table-zebra w-full">
                 <thead>
                     <tr>

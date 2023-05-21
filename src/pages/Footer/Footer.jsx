@@ -1,15 +1,16 @@
 import React from 'react';
+import { FaLinkedin, FaTwitterSquare, FaInstagramSquare } from 'react-icons/fa';
 
 const Footer = () => {
     return (
         <>
             <footer className="footer p-10 bg-black text-white">
-                <div>
-                    <span className="footer-title">Services</span>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                <div className='text-slate-300 space-y-4 p-4'>
+                    <img className='w-20 rounded-full' src="https://i.ibb.co/W3S4Ngv/funny-logo.png" alt="" />
+                    <h1 className='ml-2 text-2xl font-bold tracking-wide text-slate-300'>
+                        111<span className='text-pink-600'>funny</span>
+                    </h1>
+                    <p>There are many variations of trendy Jobs, but the majority have suffered alteration in some form.</p>
                 </div>
                 <div>
                     <span className="footer-title">Company</span>
@@ -19,10 +20,22 @@ const Footer = () => {
                     <a className="link link-hover">Press kit</a>
                 </div>
                 <div>
-                    <span className="footer-title">Legal</span>
-                    <a className="link link-hover">Terms of use</a>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    {/* <h5>Follow Us</h5> */}
+                    <span className="footer-title">Follow Us</span>
+                    <div className="social-links">
+                        <a href="https://www.linkedin.com/" className='flex items-center'>
+                            <FaLinkedin className="mr-2" />
+                            Linkedin
+                        </a>
+                        <a href="https://twitter.com/" className='flex items-center'>
+                            <FaTwitterSquare className="mr-2" />
+                            Twitter
+                        </a>
+                        <a href="https://www.instagram.com/" className='flex items-center'>
+                            <FaInstagramSquare className="mr-2" />
+                            Instagram
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <span className="footer-title">Newsletter</span>
@@ -39,7 +52,7 @@ const Footer = () => {
 
             </footer>
             <div className='py-6 text-sm text-center text-gray-400 bg-black'>
-                © 2023 TrendyGEN Inc. All rights reserved.
+                © 2023 111 funny Inc. All rights reserved.
             </div>
         </>
     );

@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const SingleProduct = () => {
     const product = useLoaderData();
+    useTitle("Single Product")
     // console.log(product);
     const { toys_name, sub_category, seller_name, quantity, postedBy, image, category, Rating, Price, Description } = product;
     return (
@@ -36,13 +38,18 @@ const SingleProduct = () => {
                     <h4 class="mb-3 text-base font-semibold tracking-tight text-sky-600">
                         Price : {Price}
                     </h4>
-                    <h4 class="mb-3 text-base font-semibold tracking-tight text-sky-600">
-                        {Rating}
-                    </h4>
+                    <div className='text-start'><div className="rating w-30">
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" defaultChecked />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                        <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400 " />
+                        <span>{Rating}</span>
+                    </div></div>
                     <p class="mb-2 text-sm leading-normal text-justify text-sky-900">
                         Product Description :  {Description}
                     </p>
-                    <button
+                    <Link to={"/"}
                         class="
                             px-4
                             py-2
@@ -52,8 +59,8 @@ const SingleProduct = () => {
                             shadow-sky-600
                             text-sky-700
                             hover:bg-sky-600 hover:text-sky-100">
-                        Read more
-                    </button>
+                        Back
+                    </Link>
                 </div>
             </div>
         </div>

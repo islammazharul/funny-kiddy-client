@@ -6,7 +6,7 @@ const Products = () => {
     const [tab, setTab] = useState("Sports-Car");
 
     useEffect(() => {
-        fetch(`http://localhost:6500/allProducts/${tab}`)
+        fetch(`https://funny-kiddy-server.vercel.app/allProducts/${tab}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

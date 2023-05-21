@@ -1,10 +1,12 @@
 import React from 'react';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
 
 const MyProducts = ({ product }) => {
 
     const { _id, quantity, Price, Description } = product;
+    useTitle("My Products")
 
     const handleUpdateProduct = event => {
         event.preventDefault();
@@ -16,7 +18,7 @@ const MyProducts = ({ product }) => {
         form.reset()
         console.log(product);
 
-        fetch(`http://localhost:6500/updateProduct/${_id}`, {
+        fetch(`https://funny-kiddy-server.vercel.app/updateProduct/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

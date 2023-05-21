@@ -2,14 +2,16 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const AddToys = () => {
     const { user } = useContext(AuthContext)
+    useTitle("Add Toys")
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data)
-        fetch("http://localhost:6500/post-products", {
+        fetch("https://funny-kiddy-server.vercel.app/post-products", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

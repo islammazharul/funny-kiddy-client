@@ -14,6 +14,7 @@ import Error from "../pages/Error/Error";
 import UpdateProduct from "../pages/UpdateProduct/UpdateProduct";
 import SingleProduct from "../pages/SingleProduct/SingleProduct";
 import MyProducts from "../pages/MyProducts/MyProducts";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
         children: [
             // {
             //     path: "/",
-            //     element: <Navigate to="/home"></Navigate>
+            //     element: <Navigate to="/"></Navigate>
             // },
             {
                 path: "/",
@@ -32,11 +33,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addToys",
-                element: <AddToys></AddToys>
+                element: <PrivateRoute><AddToys></AddToys></PrivateRoute>
             },
             {
                 path: "/myToys",
-                element: <MyToys></MyToys>
+                element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
             },
             {
                 path: "/allToys",
@@ -44,8 +45,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "singleProduct/:id",
-                element: <SingleProduct></SingleProduct>,
-                loader: ({ params }) => fetch(`http://localhost:6500/singleProduct/${params.id}`)
+                element: <PrivateRoute><SingleProduct></SingleProduct></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://funny-kiddy-server.vercel.app/singleProduct/${params.id}`)
             },
             {
                 path: "/login",

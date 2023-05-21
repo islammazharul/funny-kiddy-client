@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
     const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext)
@@ -10,6 +11,7 @@ const Login = () => {
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
     const emailRef = useRef();
+    useTitle('Login')
 
     const from = location.state?.from?.pathname || '/'
 

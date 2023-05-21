@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const AllToys = () => {
 
     const [allToys, setAllToys] = useState([]);
     const [searchText, setSearchText] = useState("");
 
+    useTitle("All Toys")
+
 
     useEffect(() => {
-        fetch("http://localhost:6500/allProducts")
+        fetch("https://funny-kiddy-server.vercel.app/allProducts")
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -16,12 +20,14 @@ const AllToys = () => {
     }, [])
 
     const handleSearch = () => {
-        fetch(`http://localhost:6500/getProductsByName/${searchText}`)
+        fetch(`https://funny-kiddy-server.vercel.app/getProductsByName/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
             })
     }
+
+
 
 
     return (
@@ -37,6 +43,8 @@ const AllToys = () => {
                         </button>
                     </div>
                 </div>
+
+
 
                 <table className="table lg:w-11/12 mx-auto  mb-3">
                     {/* head */}
