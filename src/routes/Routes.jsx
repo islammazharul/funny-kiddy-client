@@ -1,4 +1,5 @@
 import {
+    Navigate,
     createBrowserRouter
 } from "react-router-dom";
 import Main from "../layout/Main/Main";
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         element: <Main></Main>,
         errorElement: <Error></Error>,
         children: [
+            // {
+            //     path: "/",
+            //     element: <Navigate to="/home"></Navigate>
+            // },
             {
                 path: "/",
                 element: <Home></Home>
@@ -42,11 +47,6 @@ const router = createBrowserRouter([
                 element: <SingleProduct></SingleProduct>,
                 loader: ({ params }) => fetch(`http://localhost:6500/singleProduct/${params.id}`)
             },
-            // {
-            //     path: "updateProduct/:id",
-            //     element: <MyProducts></MyProducts>,
-            //     loader: ({ params }) => fetch(`http://localhost:6500/updateProduct/${params.id}`)
-            // },
             {
                 path: "/login",
                 element: <Login></Login>
