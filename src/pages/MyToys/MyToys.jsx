@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import MyProducts from '../MyProducts/MyProducts';
+import Swal from 'sweetalert2';
 
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
-
     const [products, setProducts] = useState([]);
     const [control, setControl] = useState(false);
 
@@ -13,22 +13,40 @@ const MyToys = () => {
         fetch(`http://localhost:6500/myProducts/${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
                 setProducts(data);
             })
     }, [user, control])
 
     const handleDeleteProduct = _id => {
-        console.log(_id);
-        fetch(`http://localhost:6500/deleteProduct/${_id}`, {
-            method: "DELETE",
+        console.log(_id)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to delete!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:6500/deleteProduct/${_id}`, {
+                    method: "DELETE",
 
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            setControl(!control)
+                        }
+                    })
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setControl(!control)
-            })
+
     }
 
     return (

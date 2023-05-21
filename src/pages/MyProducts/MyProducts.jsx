@@ -1,13 +1,10 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
-// import { AuthContext } from '../../providers/AuthProvider';
-import { Link, useLoaderData } from 'react-router-dom';
 
 const MyProducts = ({ product }) => {
 
-    const { _id, toys_name, sub_category, seller_name, quantity, postedBy, image, category, Rating, Price, Description } = product;
-
-    // const { user } = useContext(AuthContext)
+    const { _id, quantity, Price, Description } = product;
 
     const handleUpdateProduct = event => {
         event.preventDefault();
@@ -29,6 +26,14 @@ const MyProducts = ({ product }) => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                if (result.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy car updated successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
             })
     }
 

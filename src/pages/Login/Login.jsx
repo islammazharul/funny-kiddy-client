@@ -44,6 +44,8 @@ const Login = () => {
                 <div className="card w-full max-w-sm shadow-xl bg-gray-400 bg-opacity-50">
                     <div className="card-body">
                         <h1 className="text-3xl font-bold">Login!</h1>
+                        <p className="text-red-500">{success}</p>
+                        <p className="text-green-700">{error}</p>
                         <form onSubmit={handleLogin}>
                             <div className="form-control">
                                 <label className="label">
@@ -66,7 +68,7 @@ const Login = () => {
                         </form>
                         <div className="divider">OR</div>
                         <SocialLogin></SocialLogin>
-                        <p className='my-4 text-center'>New to Funny Kiddy ? <Link className='text-orange-600 font-bold' to='/register'>Register</Link></p>
+                        <p className='my-4 text-center'>New to 111funny ? <Link className='text-orange-600 font-bold' to='/register'>Register</Link></p>
                     </div>
                 </div>
             </div>

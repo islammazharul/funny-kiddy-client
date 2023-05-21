@@ -3,13 +3,13 @@ import Product from '../Product/Product';
 
 const Products = () => {
     const [products, setProducts] = useState([])
-    const [tab, setTab] = useState("Action-Car");
+    const [tab, setTab] = useState("Sports-Car");
 
     useEffect(() => {
         fetch(`http://localhost:6500/allProducts/${tab}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 setProducts(data)
             })
     }, [tab])
@@ -29,10 +29,10 @@ const Products = () => {
             <h1 className='text-5xl font-bold mt-5 mb-8'>SHOP BY CATEGORY</h1>
 
             <div className="flex justify-center space-x-4 tabs tabs-boxed lg:py-4 lg:w-1/3 mx-auto">
-                <a onClick={() => handleTab("Racing-Car")}
-                    className={`tab font-bold ${tab == "Racing-Car" ? " bg-red-500 text-white font-bold" : ""
+                <a onClick={() => handleTab("Sports-Car")}
+                    className={`tab font-bold ${tab == "Sports-Car" ? " bg-red-500 text-white font-bold" : ""
                         }`}>SPORTS-CAR</a>
-                <a onClick={() => handleTab("Action-Car")} className={`tab font-bold ${tab == "Action-Car" ? " bg-red-500 text-white font-bold" : ""
+                <a onClick={() => handleTab("Regular-Car")} className={`tab font-bold ${tab == "Regular-Car" ? " bg-red-500 text-white font-bold" : ""
                     }`}
                 >REGULAR-CAR</a>
                 <a onClick={() => handleTab("Police-Car")} className={`tab font-bold ${tab == "Police-Car" ? " bg-red-500 text-white font-bold" : ""
@@ -49,8 +49,6 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
-
-
 
             <div className=" stats-vertical shadow lg:flex lg:w-10/12 mx-auto">
 
@@ -74,11 +72,6 @@ const Products = () => {
 
                 <div className="stat">
                     <div className="stat-figure text-secondary">
-                        {/* <div className="avatar online">
-                            <div className="w-16 rounded-full">
-                                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                            </div>
-                        </div> */}
                     </div>
                     <div className="stat-value">75%</div>
                     <div className="stat-title">Tasks done</div>
