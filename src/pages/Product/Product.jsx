@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const Product = ({ product }) => {
     const { _id, toys_name, sub_category, seller_name, quantity, postedBy, image, category, Rating, Price, Description } = product;
     return (
-        <div className="card w-96 h-full bg-base-100 shadow-xl">
+        <div className=" w-96 h-full bg-base-100 shadow-xl">
             <figure className="px-3 pt-3">
-                <img src={image} alt="Car" className="rounded-lg h-60 w-full" />
+                <img src={image} alt="Car" className=" h-60 w-full" />
             </figure>
             <div className="card-body ">
                 <h2 className="card-title font-bold">{toys_name}</h2>
